@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+require('gulp-stats')(gulp);
 
 gulp.task('sass', function () {
     return gulp.src('assets/scss/**/*.scss')
