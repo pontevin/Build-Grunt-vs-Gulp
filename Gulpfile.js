@@ -34,7 +34,9 @@ function js() {
 
 function img() {
     return gulp.src('assets/img/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.mozjpeg({optimizationLevel: 5})
+        ]))
         .pipe(gulp.dest('dist-gulp/img'));
 }
 
