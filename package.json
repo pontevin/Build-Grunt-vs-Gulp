@@ -1,20 +1,21 @@
 {
-  "name": "grunt-vs-gulp",
-  "version": "1.0.0",
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-cssmin": "^2.2.1",
-    "grunt-contrib-imagemin": "^2.0.1",
-    "grunt-contrib-uglify": "^3.1.0",
-    "grunt-sass": "^2.0.0",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-stats": "0.0.4",
-    "gulp-uglify": "^3.0.0",
-    "time-grunt": "^1.4.0"
-  }
+	"name": "grunt-vs-gulp",
+	"version": "1.0.1",
+	"devDependencies": {
+		"grunt": "^1.1.0",
+		"grunt-contrib-concat": "^1.0.1",
+		"grunt-contrib-cssmin": "^3.0.0",
+		"grunt-contrib-imagemin": "^4.0.0",
+		"grunt-contrib-uglify": "^4.0.1",
+		"grunt-sass": "^3.1.0",
+		"gulp": "^4.0.2",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-stats": "0.0.4",
+		"gulp-uglify": "^3.0.2",
+		"node-sass": "^4.14.1",
+		"time-grunt": "^2.0.0"
+	}
 }
