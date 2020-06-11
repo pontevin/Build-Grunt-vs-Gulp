@@ -1,9 +1,13 @@
 module.exports = function (grunt) {
 
+    const sass = require('node-sass');
     require('time-grunt')(grunt);
 
     grunt.initConfig({
         sass: {
+            options: {
+                implementation: sass
+            },
             dist: {
                 files: {
                     'dist-grunt/css/style.css': 'assets/scss/style.scss'
