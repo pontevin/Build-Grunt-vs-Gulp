@@ -1,38 +1,43 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
-var imagemin = require('gulp-imagemin');
-require('gulp-stats')(gulp);
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
+const imagemin = require('gulp-imagemin');
 
-gulp.task('sass', function () {
+sass.compiler = require('node-sass');
+
+function scss() {
     return gulp.src('assets/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist-gulp/css'));
-});
+}
 
-gulp.task('css', ['sass'], function () {
-    return gulp.src([
+function css() {
+	return gulp.src([
             'dist-gulp/css/style.css',
             'assets/css/test.css'
         ])
-        .pipe(concat('styles.min.css'))
-        .pipe(cleanCSS())
-        .pipe(gulp.dest('dist-gulp/css'));
-});
+		.pipe(concat('styles.css'))
+		.pipe(gulp.dest('dist-gulp/css'))
+		.pipe(concat('styles.min.css'))
+		.pipe(cleanCSS())
+		.pipe(gulp.dest('dist-gulp/css'));
+}
 
-gulp.task('js', function () {
+function js() {
     return gulp.src('assets/js/**/*.js')
         .pipe(concat('scripts.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist-gulp/js'));
-});
+}
 
-gulp.task('img', function () {
+function img() {
     return gulp.src('assets/img/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.mozjpeg({optimizationLevel: 5})
+        ]))
         .pipe(gulp.dest('dist-gulp/img'));
-});
+}
 
-gulp.task('default', ['css', 'js', 'img']);
+exports.default = gulp.parallel(gulp.series(scss, css), js, img);

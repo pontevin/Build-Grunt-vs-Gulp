@@ -1,9 +1,15 @@
 module.exports = function (grunt) {
 
+    const sass = require('node-sass');
+    const mozjpeg = require('imagemin-mozjpeg');
+
     require('time-grunt')(grunt);
 
     grunt.initConfig({
         sass: {
+            options: {
+                implementation: sass
+            },
             dist: {
                 files: {
                     'dist-grunt/css/style.css': 'assets/scss/style.scss'
@@ -44,6 +50,10 @@ module.exports = function (grunt) {
         },
         imagemin: {
             dynamic: {
+                options: {
+                    optimizationLevel: 5,
+                    use: [mozjpeg()]
+                },
                 files: [{
                     expand: true,
                     cwd: 'assets/img/',
