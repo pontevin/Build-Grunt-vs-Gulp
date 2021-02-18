@@ -16,6 +16,15 @@
 		"gulp-stats": "0.0.4",
 		"gulp-uglify": "^3.0.2",
 		"node-sass": "^4.14.1",
+		"npm-run-all": "^4.1.5",
 		"time-grunt": "^2.0.0"
+	},
+	"scripts": {
+		"clean:grunt": "if [ -d 'dist-grunt' ]; then rm -Rf dist-grunt; fi",
+		"build:grunt": "grunt",
+		"clean:gulp": "if [ -d 'dist-gulp' ]; then rm -Rf dist-gulp; fi",
+		"build:gulp": "gulp",
+		"clean": "npm-run-all clean:*",
+		"build": "npm-run-all build:*"
 	}
 }
